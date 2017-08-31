@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="col-sm-4" ng-repeat="data in allImage">
+        <div class="thumbnail">
+            <img ng-src="http://localhost:8088/uploads/{{data.name}}" alt="...">
+            <div class="caption">
+                <h3>Uploaded by : {{data.username}}</h3>
+                <h5 ng-click="showComment = showComment ? false : true">Comments: {{data.comments.length}}</h5>
+                <div ng-if="showComment" ng-repeat="cmt in data.comments">
+                    <p style="    float: left;"><strong>{{cmt.username}}</strong> : {{cmt.comment_data}}</p>
+                    <button ng-click="editComment = cmt.comment_data">Edit</button>
+                    <input ng-if="editComment" ng-model="editComment" />
+                </div>
+                <!--<p>...</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default"
+                                role="button">Button</a></p>-->
+
+                <label ng-click="showme = showme ? false : true">Post a comment</label>
+                <div ng-if="showme">
+                    <textarea ng-model="commentData"></textarea>
+                    <button ng-click="saveComment(data._id, data.username, commentData)" class="btn btn-warning">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

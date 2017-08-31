@@ -1,0 +1,35 @@
+<div class="container">
+    <form name="form">
+        Single Image with validations
+        <div style="    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(http://3.bp.blogspot.com/-CjsnLSBxxA4/Vw9p8hLjmoI/AAAAAAAAO-M/rWwrb0a9EyMzqrZuN_qwgQSfvBGz1SxQgCK4B/s1600/uploading.png);
+    height: 100px;
+    margin: 0px auto;
+    width: 100px;
+    display: block;" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB"
+            ngf-min-height="100" ngf-resize="{width: 300, height: 300}"></div>
+        <button type="submit" ng-click="submit()" class="btn btn-primary">submit</button>
+        <div class="cleafix"></div>
+
+        <div class="row">
+            <div class="col-sm-4" ng-repeat="data in allImage">
+                <div class="thumbnail">
+                    <img src="http://localhost:8088/uploads/{{data.name}}" alt="...">
+                    <div class="caption">
+                        <!--<h3>Thumbnail label</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default"
+                                role="button">Button</a></p>-->
+                        <label ng-click="showme = showme ? false : true">Post a comment</label>
+                        <div ng-if="showme">
+                            <textarea ng-model="commentData"></textarea>
+                            <button class="btn btn-warning">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
